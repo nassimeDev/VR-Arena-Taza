@@ -145,6 +145,7 @@ form.addEventListener("submit", e => {
   const name = $("bname").value.trim(), phone = window.VR_UI.validPhone($("bphone").value);
   if (name.length < 2) { err.textContent = T("err_name"); return; }
   if (!phone) { err.textContent = T("err_phone"); return; }
+  if (!form.querySelector("[name=consent]").checked) { err.textContent = T("err_consent"); return; }
   const loc = { fr: "fr-FR", en: "en-GB", ar: "ar-MA" }[window.I18N.lang];
   const d = new Date(st.date + "T12:00").toLocaleDateString(loc, { weekday: "long", day: "numeric", month: "long" });
   const rows = [[T("r_formule"), T(fname[st.formule])], [T("r_day"), d], [T("r_hour"), st.slot], [T("r_headsets"), [...st.sel].sort((a, b) => a - b).map(i => i + 1).join(", ")], [T("r_name"), name], [T("r_phone"), phone], [T("r_total"), $("btotal").textContent]];

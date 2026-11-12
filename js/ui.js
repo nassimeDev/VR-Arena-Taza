@@ -2,6 +2,8 @@
   // Numéro WhatsApp de la salle, format international sans + (ex. "212600000000"). Vide = envoi désactivé.
   // MAPS_URL: lien Google Maps de la salle. Vide = pas de lien « Itinéraire » dans le pied de page.
   window.VR_CONFIG = { WHATSAPP: "", MAPS_URL: "", PRICE_SESSION: 30, PRICE_SUB: 199, PRICE_BDAY: 400 };
+  // Informations légales affichées sur mentions-legales.html. Une ligne vide n'est pas affichée.
+  window.VR_LEGAL = { ADDRESS: "", RC: "", ICE: "", IF: "", EMAIL: "", PHONE: "" };
 
   const $ = id => document.getElementById(id);
   const t = (k, v) => window.I18N.t(k, v);
@@ -68,8 +70,10 @@
     document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 
     // quote / request forms (écoles, entreprises)
+    const pad = n => String(n).padStart(2, "0"), td = new Date(), today = `${td.getFullYear()}-${pad(td.getMonth() + 1)}-${pad(td.getDate())}`;
     document.querySelectorAll("form.quote").forEach(form => {
       const done = form.nextElementSibling;
+      const dt = form.querySelector("[name=date]"); if (dt) dt.min = today;
       form.addEventListener("submit", e => {
         e.preventDefault();
         const err = form.querySelector(".err"); err.textContent = "";
@@ -77,6 +81,9 @@
         const phone = window.VR_UI.validPhone(form.querySelector("[name=phone]").value);
         if (name.length < 2) { err.textContent = t("err_name"); return; }
         if (!phone) { err.textContent = t("err_phone"); return; }
+        const em = form.querySelector("[name=email]").value.trim();
+        if (em && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { err.textContent = t("err_email"); return; }
+        if (!form.querySelector("[name=consent]").checked) { err.textContent = t("err_consent"); return; }
         const need = form.querySelector("[name=need]");
         const rows = [[t("r_name"), name], [t("r_org"), form.querySelector("[name=org]").value.trim() || "–"], [t("r_phone"), phone]];
         const email = form.querySelector("[name=email]").value.trim(); if (email) rows.push([t("r_email"), email]);
@@ -95,6 +102,18 @@
       const C = window.VR_CONFIG, add = (href, key) => { const a = document.createElement("a"); a.href = href; a.target = "_blank"; a.rel = "noopener"; a.dataset.i18n = key; a.textContent = t(key); city.before(a); };
       if (C.WHATSAPP) add("https://wa.me/" + C.WHATSAPP, "ft_wa");
       if (C.MAPS_URL) add(C.MAPS_URL, "ft_map");
+    }
+
+    // legal page: company details from VR_LEGAL, empty values are skipped
+    const lr = $("legalRows");
+    if (lr) {
+      const L = window.VR_LEGAL, contact = [L.EMAIL, L.PHONE].filter(Boolean).join(" · ");
+      const draw = () => {
+        const rows = [["lg_company", "IT HUB DIGITAL SOLUTIONS S.A.R.L.A.U."], ["lg_addr", L.ADDRESS || t("lg_pending")], ["lg_rc", L.RC], ["lg_ice", L.ICE], ["lg_if", L.IF],
+          ["lg_contact", contact || t("lg_pending")], ["lg_host", "Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA"]];
+        lr.innerHTML = rows.filter(r => r[1]).map(([k, v]) => `<div><dt>${esc(t(k))}</dt><dd>${esc(v)}</dd></div>`).join("");
+      };
+      draw(); document.addEventListener("langchange", draw);
     }
 
     // sticky CTA (mobile)

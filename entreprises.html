@@ -8,6 +8,9 @@
 <meta name="theme-color" content="#0F1730">
 <meta property="og:title" content="Entreprises · IT HUB VR Arena Taza">
 <meta property="og:description" content="Développement d'expériences VR sur mesure, formation des employés et journées d'équipe à Taza.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="og.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 24'%3E%3Crect x='1' y='3' width='32' height='18' rx='7' fill='%2314A5A3'/%3E%3Crect x='5' y='7' width='10' height='10' rx='4' fill='%230F1730'/%3E%3Crect x='19' y='7' width='10' height='10' rx='4' fill='%230F1730'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,19 +82,20 @@
   <div>
     <form class="form quote" novalidate>
       <div class="two">
-        <div class="f"><label data-i18n="qf_name"></label><input name="name" autocomplete="name"></div>
-        <div class="f"><label data-i18n="qf_org"></label><input name="org" autocomplete="organization"></div>
+        <div class="f"><label for="q-name" data-i18n="qf_name"></label><input id="q-name" name="name" autocomplete="name"></div>
+        <div class="f"><label for="q-org" data-i18n="qf_org"></label><input id="q-org" name="org" autocomplete="organization"></div>
       </div>
       <div class="two">
-        <div class="f"><label data-i18n="qf_phone"></label><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="06 00 00 00 00" dir="ltr"></div>
-        <div class="f"><label data-i18n="qf_email"></label><input name="email" type="email" autocomplete="email" dir="ltr"></div>
+        <div class="f"><label for="q-phone" data-i18n="qf_phone"></label><input id="q-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="06 00 00 00 00" dir="ltr"></div>
+        <div class="f"><label for="q-email" data-i18n="qf_email"></label><input id="q-email" name="email" type="email" autocomplete="email" dir="ltr"></div>
       </div>
       <div class="two">
-        <div class="f"><label data-i18n="qf_need"></label><select name="need" data-i18n-options="qf_need_bz"></select></div>
-        <div class="f"><label data-i18n="qf_count"></label><input name="count" type="number" min="1" max="500" inputmode="numeric"></div>
+        <div class="f"><label for="q-need" data-i18n="qf_need"></label><select id="q-need" name="need" data-i18n-options="qf_need_bz"></select></div>
+        <div class="f"><label for="q-count" data-i18n="qf_count"></label><input id="q-count" name="count" type="number" min="1" max="500" inputmode="numeric"></div>
       </div>
-      <div class="f"><label data-i18n="qf_date"></label><input name="date" type="date"></div>
-      <div class="f"><label data-i18n="qf_msg"></label><textarea name="msg" rows="4" data-i18n-ph="qf_msg_ph"></textarea></div>
+      <div class="f"><label for="q-date" data-i18n="qf_date"></label><input id="q-date" name="date" type="date"></div>
+      <div class="f"><label for="q-msg" data-i18n="qf_msg"></label><textarea id="q-msg" name="msg" rows="4" data-i18n-ph="qf_msg_ph"></textarea></div>
+      <label class="consent"><input type="checkbox" name="consent"><span><span data-i18n="cs_text"></span> <a href="mentions-legales.html#donnees" target="_blank" data-i18n="cs_link"></a></span></label>
       <div class="err" role="alert"></div>
       <button class="btn btn-ink btn-block" type="submit" data-i18n="qf_submit"></button>
     </form>
@@ -104,7 +108,7 @@
     <div><a class="brand" href="index.html"><svg width="34" height="24" viewBox="0 0 34 24" aria-hidden="true"><rect x="1" y="3" width="32" height="18" rx="7" fill="#14A5A3"/><rect x="5" y="7" width="10" height="10" rx="4" fill="#0F1730"/><rect x="19" y="7" width="10" height="10" rx="4" fill="#0F1730"/><circle cx="10" cy="12" r="2" fill="#E8A33D"/><circle cx="24" cy="12" r="2" fill="#E8A33D"/></svg><span>VR Arena Taza</span></a><p data-i18n="ft_about" style="margin-top:10px"></p></div>
     <div><b data-i18n="ft_pages"></b><a href="particuliers.html" data-i18n="nav_clients"></a><a href="ecoles.html" data-i18n="nav_schools"></a><a href="entreprises.html" data-i18n="nav_biz"></a><a href="labo.html" data-i18n="nav_lab"></a><a href="experience.html" data-i18n="nav_live"></a></div>
     <div><b data-i18n="ft_contact"></b><a href="reserver.html" data-i18n="ft_book"></a><span data-i18n="ft_city"></span></div>
-    <div class="legal"><span data-i18n="ft_rights"></span><span data-i18n="ft_demo"></span></div>
+    <div class="legal"><span data-i18n="ft_rights"></span><a href="mentions-legales.html" data-i18n="ft_legal"></a><span data-i18n="ft_demo"></span></div>
   </div>
 </footer>
 <script src="js/i18n.js"></script>

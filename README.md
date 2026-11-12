@@ -28,6 +28,7 @@ vercel --prod # version publique
 | Tous les textes du site | `js/i18n.js` : chaque texte existe en `fr`, `en` et `ar` |
 | Adresse de la salle | `js/i18n.js`, clé `a6` |
 | Lien Google Maps (lien « Itinéraire » du pied de page) | `js/ui.js`, `MAPS_URL` |
+| Adresse, RC, ICE, IF, e-mail, téléphone (page Mentions légales) | `js/ui.js`, `VR_LEGAL` |
 
 ## Liens utiles
 - `?lang=fr`, `?lang=en`, `?lang=ar` : ouvre le site dans une langue précise.
@@ -41,6 +42,8 @@ vercel --prod # version publique
 - `ecoles.html` : écoles et universités, laboratoires, demande de visite
 - `entreprises.html` : développement sur mesure, formation, journées d'équipe, demande de devis
 - `labo.html` : laboratoire R&D IT HUB (simulations, IA pour l'éducation, besoins du Maroc, demande de partenariat)
+- `mentions-legales.html` : éditeur, données personnelles (loi 09-08), santé et sécurité, prix
+- `404.html` : page introuvable
 - `experience.html` : session en direct (partie, anniversaire, cours universitaire) avec l'écran des spectateurs et les temps
 - `reserver.html` : réservation avec les casques 3D (Libre / Réservé / Votre choix)
 
@@ -54,3 +57,11 @@ vercel --prod # version publique
 - `js/reserve.js` : réservation des casques
 - `js/experience.js` : session en direct
 - `vendor/three/` : la bibliothèque 3D three.js (version 0.160)
+
+## Avant l'ouverture : obligations légales (Maroc)
+- **CNDP (loi 09-08)** : les formulaires recueillent des données personnelles. Déclarez le traitement auprès de la CNDP (cndp.ma) avant de recevoir de vraies demandes.
+- **Mentions légales** : remplissez `VR_LEGAL` dans `js/ui.js` (adresse du siège, RC, ICE, IF, contact).
+- **Prix (loi 31-08)** : les prix affichés sont TTC en dirhams ; gardez-les identiques sur le site et à l'accueil.
+- **Licences des jeux** : utilisez uniquement des jeux avec une licence commerciale (salle / arcade), pas des licences grand public.
+- **Âge minimum** : vérifiez l'âge indiqué par le fabricant de vos casques et affichez-le à l'accueil.
+- **Image de partage** : `og.png`. Une fois le nom de domaine connu, remplacez `content="og.png"` par l'adresse complète (`https://votre-domaine/og.png`) dans chaque page pour WhatsApp et Facebook.

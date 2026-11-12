@@ -497,3 +497,24 @@ html[dir=rtl] .eyebrow{letter-spacing:0}
 .phero-art.lab span::after{left:38%;right:38%;top:38%;height:24%;border-radius:50%}
 .phero-art.lab span:nth-child(2){border-color:#e8a33d;box-shadow:0 0 34px rgba(232,163,61,.45),inset 0 0 26px rgba(232,163,61,.3);background:radial-gradient(circle,rgba(232,163,61,.18),transparent 70%)}
 .phero-art.lab span:nth-child(2)::after{background:#e8a33d;box-shadow:0 0 24px #e8a33d}
+
+/* consent checkbox on forms */
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ink2);margin:6px 0 4px;cursor:pointer;line-height:1.45}
+.consent input{width:18px;height:18px;margin-top:1px;flex:none;accent-color:var(--cedar)}
+.consent a{color:var(--cedar-d);font-weight:700}
+/* legal page */
+.legal-doc{max-width:780px}
+.legal-doc h2{font-size:clamp(24px,3vw,30px);margin:40px 0 12px}
+.legal-doc h2:first-child{margin-top:0}
+.legal-doc h3{font-size:19px;margin:26px 0 8px}
+.legal-doc p{color:var(--ink2)}
+.legal-doc #donnees{scroll-margin-top:calc(var(--top) + 20px)}
+.legal-rows{margin:0;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.legal-rows div{display:grid;grid-template-columns:200px 1fr;gap:16px;padding:12px 18px;border-bottom:1px solid var(--line)}
+.legal-rows div:last-child{border-bottom:0}
+.legal-rows dt{font-weight:700;color:var(--ink)}
+.legal-rows dd{margin:0;color:var(--ink2)}
+@media (max-width:560px){.legal-rows div{grid-template-columns:1fr;gap:2px}}
+footer .legal a{color:#8D9AB5;text-decoration:underline}
+footer .legal a:hover{color:#fff}
+.xhead.nf{min-height:70vh;display:grid;align-content:center}
