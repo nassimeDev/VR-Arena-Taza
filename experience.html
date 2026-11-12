@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vivre une session · IT HUB VR Arena Taza</title>
+<meta name="description" content="Regardez en direct une partie, un anniversaire ou un cours dans la salle VR de Taza.">
+<meta name="theme-color" content="#0F1730">
+<meta property="og:title" content="Vivre une session · IT HUB VR Arena Taza">
+<meta property="og:description" content="Regardez en direct une partie, un anniversaire ou un cours dans la salle VR de Taza.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 24'%3E%3Crect x='1' y='3' width='32' height='18' rx='7' fill='%2314A5A3'/%3E%3Crect x='5' y='7' width='10' height='10' rx='4' fill='%230F1730'/%3E%3Crect x='19' y='7' width='10' height='10' rx='4' fill='%230F1730'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/three.module.js", "three/addons/": "./vendor/three/addons/" } }
+</script>
+</head>
+<body data-page="live">
+<div id="loader" aria-hidden="true">
+  <svg width="68" height="48" viewBox="0 0 34 24"><rect x="1" y="3" width="32" height="18" rx="7" fill="#14A5A3"/><rect x="5" y="7" width="10" height="10" rx="4" fill="#0F1730"/><rect x="19" y="7" width="10" height="10" rx="4" fill="#0F1730"/><circle cx="10" cy="12" r="2" fill="#E8A33D"/><circle cx="24" cy="12" r="2" fill="#E8A33D"/></svg>
+  <div class="ld-bar"><i></i></div><span data-i18n="loading"></span>
+</div>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="VR Arena Taza"><svg width="34" height="24" viewBox="0 0 34 24" aria-hidden="true"><rect x="1" y="3" width="32" height="18" rx="7" fill="#14A5A3"/><rect x="5" y="7" width="10" height="10" rx="4" fill="#0F1730"/><rect x="19" y="7" width="10" height="10" rx="4" fill="#0F1730"/><circle cx="10" cy="12" r="2" fill="#E8A33D"/><circle cx="24" cy="12" r="2" fill="#E8A33D"/></svg><span>VR Arena Taza</span></a>
+    <nav class="nav" id="nav">
+      <a href="index.html" data-page="home" data-i18n="nav_home"></a>
+      <a href="particuliers.html" data-page="clients" data-i18n="nav_clients"></a>
+      <a href="ecoles.html" data-page="schools" data-i18n="nav_schools"></a>
+      <a href="entreprises.html" data-page="biz" data-i18n="nav_biz"></a>
+      <a href="experience.html" data-page="live" data-i18n="nav_live"></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Langue / Language / اللغة">
+      <button data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="ar" lang="ar">ع</button>
+    </div>
+    <a class="btn btn-saffron btn-book" href="reserver.html" data-i18n="book_btn"></a>
+    <button class="menu-btn" id="menuBtn" data-i18n-aria="menu_open" aria-expanded="false" aria-controls="nav">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+<main>
+<section class="xhead"><div class="wrap"><h1 data-i18n="ex_h1"></h1><p class="lead" data-i18n="ex_lead"></p></div></section>
+<section class="xapp" data-hide-sticky><div class="xwrap">
+  <div class="xstage" id="xstage">
+    <div class="xbar xbar-top">
+      <div class="seg" id="scTabs"><button data-sc="game" data-i18n="sc_game"></button><button data-sc="bday" data-i18n="sc_bday"></button><button data-sc="class" data-i18n="sc_class"></button></div>
+    </div>
+    <div class="xbar xbar-bottom">
+      <div class="seg" id="vTabs"><button data-v="room" data-i18n="v_room"></button><button data-v="tv" data-i18n="v_tv"></button><button data-v="vr" data-i18n="v_vr"></button></div>
+      <div class="xtools"><button class="pill-btn" id="speed"></button><button class="pill-btn" id="restart" data-i18n="restart"></button></div>
+    </div>
+    <div class="xmsg" id="xmsg" hidden></div>
+    <div class="vr-badge" id="vrBadge" hidden><span class="dotlive"></span><b id="vrName"></b><span id="vrLeft"></span></div>
+    <div class="visor" aria-hidden="true"></div>
+  </div>
+  <aside class="xpanel" id="panel">
+    <div class="pn-head"><b id="pnTitle"></b><span class="pn-state" id="pnState"></span></div>
+    <ul class="pn-list" id="pnList"></ul>
+  </aside>
+</div></section>
+<section><div class="wrap">
+  <div class="grid3">
+    <article class="tile reveal" style="--c:#14A5A3"><span class="tile-ic" aria-hidden="true"></span><h3 data-i18n="exs1_h"></h3><p data-i18n="exs1_p"></p><button class="link-btn" data-goto-sc="game" data-i18n="sc_game"></button></article>
+    <article class="tile reveal" style="--c:#FF6FAE"><span class="tile-ic" aria-hidden="true"></span><h3 data-i18n="exs2_h"></h3><p data-i18n="exs2_p"></p><button class="link-btn" data-goto-sc="bday" data-i18n="sc_bday"></button></article>
+    <article class="tile reveal" style="--c:#2F5DA8"><span class="tile-ic" aria-hidden="true"></span><h3 data-i18n="exs3_h"></h3><p data-i18n="exs3_p"></p><button class="link-btn" data-goto-sc="class" data-i18n="sc_class"></button></article>
+  </div>
+  <div class="cta-row" style="justify-content:center"><a class="btn btn-saffron btn-lg" href="reserver.html" data-i18n="ex_cta"></a></div>
+</div></section>
+</main>
+<footer>
+  <div class="wrap">
+    <div><a class="brand" href="index.html"><svg width="34" height="24" viewBox="0 0 34 24" aria-hidden="true"><rect x="1" y="3" width="32" height="18" rx="7" fill="#14A5A3"/><rect x="5" y="7" width="10" height="10" rx="4" fill="#0F1730"/><rect x="19" y="7" width="10" height="10" rx="4" fill="#0F1730"/><circle cx="10" cy="12" r="2" fill="#E8A33D"/><circle cx="24" cy="12" r="2" fill="#E8A33D"/></svg><span>VR Arena Taza</span></a><p data-i18n="ft_about" style="margin-top:10px"></p></div>
+    <div><b data-i18n="ft_pages"></b><a href="particuliers.html" data-i18n="nav_clients"></a><a href="ecoles.html" data-i18n="nav_schools"></a><a href="entreprises.html" data-i18n="nav_biz"></a><a href="experience.html" data-i18n="nav_live"></a></div>
+    <div><b data-i18n="ft_contact"></b><a href="reserver.html" data-i18n="ft_book"></a><span data-i18n="ft_city"></span></div>
+    <div class="legal"><span data-i18n="ft_rights"></span><span data-i18n="ft_demo"></span></div>
+  </div>
+</footer>
+<a class="btn btn-saffron sticky-cta" id="stickyCta" href="reserver.html" data-i18n="sticky_book"></a>
+<script src="js/i18n.js"></script>
+<script src="js/ui.js"></script>
+<script type="module" src="js/experience.js"></script>
+</body>
+</html>

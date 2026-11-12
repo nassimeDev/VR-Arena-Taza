@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Réserver · IT HUB VR Arena Taza</title>
+<meta name="description" content="Choisissez votre casque de réalité virtuelle et votre créneau à Taza.">
+<meta name="theme-color" content="#0F1730">
+<meta property="og:title" content="Réserver · IT HUB VR Arena Taza">
+<meta property="og:description" content="Choisissez votre casque de réalité virtuelle et votre créneau à Taza.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 24'%3E%3Crect x='1' y='3' width='32' height='18' rx='7' fill='%2314A5A3'/%3E%3Crect x='5' y='7' width='10' height='10' rx='4' fill='%230F1730'/%3E%3Crect x='19' y='7' width='10' height='10' rx='4' fill='%230F1730'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/three.module.js", "three/addons/": "./vendor/three/addons/" } }
+</script>
+</head>
+<body data-page="book">
+<div id="loader" aria-hidden="true">
+  <svg width="68" height="48" viewBox="0 0 34 24"><rect x="1" y="3" width="32" height="18" rx="7" fill="#14A5A3"/><rect x="5" y="7" width="10" height="10" rx="4" fill="#0F1730"/><rect x="19" y="7" width="10" height="10" rx="4" fill="#0F1730"/><circle cx="10" cy="12" r="2" fill="#E8A33D"/><circle cx="24" cy="12" r="2" fill="#E8A33D"/></svg>
+  <div class="ld-bar"><i></i></div><span data-i18n="loading"></span>
+</div>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="VR Arena Taza"><svg width="34" height="24" viewBox="0 0 34 24" aria-hidden="true"><rect x="1" y="3" width="32" height="18" rx="7" fill="#14A5A3"/><rect x="5" y="7" width="10" height="10" rx="4" fill="#0F1730"/><rect x="19" y="7" width="10" height="10" rx="4" fill="#0F1730"/><circle cx="10" cy="12" r="2" fill="#E8A33D"/><circle cx="24" cy="12" r="2" fill="#E8A33D"/></svg><span>VR Arena Taza</span></a>
+    <nav class="nav" id="nav">
+      <a href="index.html" data-page="home" data-i18n="nav_home"></a>
+      <a href="particuliers.html" data-page="clients" data-i18n="nav_clients"></a>
+      <a href="ecoles.html" data-page="schools" data-i18n="nav_schools"></a>
+      <a href="entreprises.html" data-page="biz" data-i18n="nav_biz"></a>
+      <a href="experience.html" data-page="live" data-i18n="nav_live"></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Langue / Language / اللغة">
+      <button data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="ar" lang="ar">ع</button>
+    </div>
+    <a class="btn btn-saffron btn-book" href="reserver.html" data-i18n="book_btn"></a>
+    <button class="menu-btn" id="menuBtn" data-i18n-aria="menu_open" aria-expanded="false" aria-controls="nav">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+<main>
+<section class="xhead"><div class="wrap"><h1 data-i18n="rs_h1"></h1><p class="lead" data-i18n="rs_lead"></p></div></section>
+<section class="rapp" data-hide-sticky><div class="wrap">
+  <form class="rgrid" id="bookForm" novalidate>
+    <div class="form fa">
+      <fieldset class="f step" id="step1"><legend><span class="sn">1</span><span data-i18n="rs_s1"></span></legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="formule" value="session" checked><span><span data-i18n="f_session"></span> · 30<span data-i18n="u_dh"></span></span></label>
+          <label class="opt"><input type="radio" name="formule" value="sub"><span><span data-i18n="f_sub"></span> · 199<span data-i18n="u_dh"></span></span></label>
+          <label class="opt"><input type="radio" name="formule" value="bday"><span><span data-i18n="f_bday"></span> · 400<span data-i18n="u_dh"></span></span></label>
+        </div>
+        <p class="small" id="bdayNote" hidden data-i18n="rs_bday"></p>
+      </fieldset>
+      <fieldset class="f step" id="step2"><legend><span class="sn">2</span><span data-i18n="rs_s2"></span></legend>
+        <div class="f"><label for="bdate" data-i18n="bk_day"></label><input type="date" id="bdate"></div>
+        <div class="slots" id="slots"></div>
+      </fieldset>
+    </div>
+    <div class="rleft">
+      <div class="rhead"><span class="sn">3</span><b data-i18n="rs_s3"></b><span class="rsel-n" id="selInfo"></span></div>
+      <div class="rstage" id="rstage">
+        <div class="rlegend"><span><i class="free"></i><b data-i18n="rs_free"></b></span><span><i class="booked"></i><b data-i18n="rs_booked"></b></span><span><i class="mine"></i><b data-i18n="rs_mine"></b></span></div>
+      </div>
+      <p class="small" data-i18n="rs_s3_hint"></p>
+      <div class="hs-list" id="hsList"></div>
+      <p class="small muted3" data-i18n="rs_demo"></p>
+    </div>
+    <div class="form fb">
+      <fieldset class="f step"><legend><span class="sn">4</span><span data-i18n="rs_s4"></span></legend>
+        <div class="two">
+          <div class="f"><label for="bname" data-i18n="bk_name"></label><input id="bname" autocomplete="name" data-i18n-ph="bk_name_ph"></div>
+          <div class="f"><label for="bphone" data-i18n="bk_phone"></label><input id="bphone" type="tel" inputmode="tel" autocomplete="tel" placeholder="06 00 00 00 00" dir="ltr"></div>
+        </div>
+      </fieldset>
+      <div class="total"><span data-i18n="bk_total"></span><b id="btotal"></b></div>
+      <div class="err" id="berr" role="alert"></div>
+      <button class="btn btn-ink btn-block" type="submit" data-i18n="bk_submit"></button>
+    </div>
+  </form>
+  <div class="done done-w" id="done" hidden><h3 data-i18n="done_h"></h3><ul class="recap"></ul><div class="sendZone"></div><button type="button" class="link-btn again" style="margin-top:12px" data-i18n="edit"></button></div>
+</div></section>
+</main>
+<footer>
+  <div class="wrap">
+    <div><a class="brand" href="index.html"><svg width="34" height="24" viewBox="0 0 34 24" aria-hidden="true"><rect x="1" y="3" width="32" height="18" rx="7" fill="#14A5A3"/><rect x="5" y="7" width="10" height="10" rx="4" fill="#0F1730"/><rect x="19" y="7" width="10" height="10" rx="4" fill="#0F1730"/><circle cx="10" cy="12" r="2" fill="#E8A33D"/><circle cx="24" cy="12" r="2" fill="#E8A33D"/></svg><span>VR Arena Taza</span></a><p data-i18n="ft_about" style="margin-top:10px"></p></div>
+    <div><b data-i18n="ft_pages"></b><a href="particuliers.html" data-i18n="nav_clients"></a><a href="ecoles.html" data-i18n="nav_schools"></a><a href="entreprises.html" data-i18n="nav_biz"></a><a href="experience.html" data-i18n="nav_live"></a></div>
+    <div><b data-i18n="ft_contact"></b><a href="reserver.html" data-i18n="ft_book"></a><span data-i18n="ft_city"></span></div>
+    <div class="legal"><span data-i18n="ft_rights"></span><span data-i18n="ft_demo"></span></div>
+  </div>
+</footer>
+<script src="js/i18n.js"></script>
+<script src="js/ui.js"></script>
+<script type="module" src="js/reserve.js"></script>
+</body>
+</html>

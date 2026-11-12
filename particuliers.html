@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Particuliers · IT HUB VR Arena Taza</title>
+<meta name="description" content="Sessions de réalité virtuelle à 30 DH, abonnement mensuel et anniversaires à Taza.">
+<meta name="theme-color" content="#0F1730">
+<meta property="og:title" content="Particuliers · IT HUB VR Arena Taza">
+<meta property="og:description" content="Sessions de réalité virtuelle à 30 DH, abonnement mensuel et anniversaires à Taza.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 24'%3E%3Crect x='1' y='3' width='32' height='18' rx='7' fill='%2314A5A3'/%3E%3Crect x='5' y='7' width='10' height='10' rx='4' fill='%230F1730'/%3E%3Crect x='19' y='7' width='10' height='10' rx='4' fill='%230F1730'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/three.module.js", "three/addons/": "./vendor/three/addons/" } }
+</script>
+</head>
+<body data-page="clients">
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="VR Arena Taza"><svg width="34" height="24" viewBox="0 0 34 24" aria-hidden="true"><rect x="1" y="3" width="32" height="18" rx="7" fill="#14A5A3"/><rect x="5" y="7" width="10" height="10" rx="4" fill="#0F1730"/><rect x="19" y="7" width="10" height="10" rx="4" fill="#0F1730"/><circle cx="10" cy="12" r="2" fill="#E8A33D"/><circle cx="24" cy="12" r="2" fill="#E8A33D"/></svg><span>VR Arena Taza</span></a>
+    <nav class="nav" id="nav">
+      <a href="index.html" data-page="home" data-i18n="nav_home"></a>
+      <a href="particuliers.html" data-page="clients" data-i18n="nav_clients"></a>
+      <a href="ecoles.html" data-page="schools" data-i18n="nav_schools"></a>
+      <a href="entreprises.html" data-page="biz" data-i18n="nav_biz"></a>
+      <a href="experience.html" data-page="live" data-i18n="nav_live"></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Langue / Language / اللغة">
+      <button data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="ar" lang="ar">ع</button>
+    </div>
+    <a class="btn btn-saffron btn-book" href="reserver.html" data-i18n="book_btn"></a>
+    <button class="menu-btn" id="menuBtn" data-i18n-aria="menu_open" aria-expanded="false" aria-controls="nav">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+<main>
+<section class="phero">
+  <div class="phero-grid" aria-hidden="true"></div><div class="phero-art" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="wrap phero-in">
+    <h1 data-i18n="cl_h1"></h1>
+    <p class="lead" data-i18n="cl_lead"></p>
+    <div class="cta-row"><a class="btn btn-saffron btn-lg" href="reserver.html" data-i18n="cl_cta1"></a><a class="btn btn-ghost btn-lg" href="experience.html?sc=game" data-i18n="cl_cta2"></a></div>
+  </div>
+</section>
+<section id="formules"><div class="wrap">
+  <div class="sec-head reveal"><h2 data-i18n="fm_h"></h2></div>
+<div class="prices prices-3 reveal">
+  <div class="price"><h3 data-i18n="p1_h"></h3><div class="amt"><span data-count="30">30</span><small data-i18n="u_dh"></small></div><small class="unit" data-i18n="p1_unit"></small><p data-i18n="p1_p"></p><ul class="ticks" data-i18n-list="p1_l"></ul></div>
+  <div class="price feat"><span class="badge-best" data-i18n="p2_badge"></span><h3 data-i18n="p2_h"></h3><div class="amt"><span data-count="199">199</span><small data-i18n="u_dh"></small></div><small class="unit" data-i18n="p2_unit"></small><p data-i18n="p2_p"></p><ul class="ticks" data-i18n-list="p2_l"></ul></div>
+  <div class="price"><h3 data-i18n="p3_h"></h3><div class="amt"><span data-i18n="p3_amt"></span><small data-i18n="u_dh"></small></div><small class="unit" data-i18n="p3_unit"></small><p data-i18n="p3_p"></p><ul class="ticks" data-i18n-list="p3_l"></ul></div>
+  
+</div>
+  <div class="cta-row"><a class="btn btn-saffron" href="reserver.html?formule=session" data-i18n="f_session"></a><a class="btn btn-ink" href="reserver.html?formule=sub" data-i18n="f_sub"></a><a class="btn btn-ink" href="reserver.html?formule=bday" data-i18n="f_bday"></a></div>
+  <p class="note" data-i18n="pr_note"></p>
+</div></section>
+<section class="mist" id="catalogue"><div class="wrap">
+  <div class="sec-head reveal"><h2 data-i18n="cat_h"></h2><p class="lead" data-i18n="cat_lead"></p></div>
+  <div class="grid3">
+    <article class="tile reveal" style="--c:#14A5A3"><span class="tile-ic" aria-hidden="true"></span><h3 data-i18n="cat1_h"></h3><p data-i18n="cat1_p"></p><small data-i18n="cat1_m"></small></article>
+    <article class="tile reveal" style="--c:#2F5DA8"><span class="tile-ic" aria-hidden="true"></span><h3 data-i18n="cat2_h"></h3><p data-i18n="cat2_p"></p><small data-i18n="cat2_m"></small></article>
+    <article class="tile reveal" style="--c:#7B5CD6"><span class="tile-ic" aria-hidden="true"></span><h3 data-i18n="cat3_h"></h3><p data-i18n="cat3_p"></p><small data-i18n="cat3_m"></small></article>
+    <article class="tile reveal" style="--c:#E85D75"><span class="tile-ic" aria-hidden="true"></span><h3 data-i18n="cat4_h"></h3><p data-i18n="cat4_p"></p><small data-i18n="cat4_m"></small></article>
+    <article class="tile reveal" style="--c:#E8A33D"><span class="tile-ic" aria-hidden="true"></span><h3 data-i18n="cat5_h"></h3><p data-i18n="cat5_p"></p><small data-i18n="cat5_m"></small></article>
+    <article class="tile reveal" style="--c:#6BBF59"><span class="tile-ic" aria-hidden="true"></span><h3 data-i18n="cat6_h"></h3><p data-i18n="cat6_p"></p><small data-i18n="cat6_m"></small></article>
+  </div>
+</div></section>
+<section id="visite"><div class="wrap">
+  <div class="sec-head reveal"><h2 data-i18n="st_h"></h2></div>
+  <ol class="steps reveal">
+    <li><b data-i18n="st1_b"></b><span data-i18n="st1_s"></span></li>
+    <li><b data-i18n="st2_b"></b><span data-i18n="st2_s"></span></li>
+    <li><b data-i18n="st3_b"></b><span data-i18n="st3_s"></span></li>
+    <li><b data-i18n="st4_b"></b><span data-i18n="st4_s"></span></li>
+  </ol>
+</div></section>
+<section class="dark"><div class="wrap two-col">
+  <div class="reveal"><h2 data-i18n="tourn_h"></h2><p class="lead" data-i18n="tourn_p"></p></div>
+  <div class="reveal"><h3 data-i18n="rules_h" style="margin-bottom:14px"></h3><ul class="ticks light" data-i18n-list="rules_l"></ul></div>
+</div></section>
+<section class="final"><div class="wrap reveal"><h2 data-i18n="final_h"></h2><a class="btn btn-saffron btn-lg" href="reserver.html" data-i18n="final_btn"></a></div></section>
+<section id="faq"><div class="wrap">
+  <div class="sec-head reveal"><h2 data-i18n="faq_h"></h2></div>
+  <div class="faq"><details><summary data-i18n="q1"></summary><p data-i18n="a1"></p></details><details><summary data-i18n="q2"></summary><p data-i18n="a2"></p></details><details><summary data-i18n="q3"></summary><p data-i18n="a3"></p></details><details><summary data-i18n="q4"></summary><p data-i18n="a4"></p></details><details><summary data-i18n="q5"></summary><p data-i18n="a5"></p></details><details><summary data-i18n="q6"></summary><p data-i18n="a6"></p></details></div>
+</div></section>
+</main>
+<footer>
+  <div class="wrap">
+    <div><a class="brand" href="index.html"><svg width="34" height="24" viewBox="0 0 34 24" aria-hidden="true"><rect x="1" y="3" width="32" height="18" rx="7" fill="#14A5A3"/><rect x="5" y="7" width="10" height="10" rx="4" fill="#0F1730"/><rect x="19" y="7" width="10" height="10" rx="4" fill="#0F1730"/><circle cx="10" cy="12" r="2" fill="#E8A33D"/><circle cx="24" cy="12" r="2" fill="#E8A33D"/></svg><span>VR Arena Taza</span></a><p data-i18n="ft_about" style="margin-top:10px"></p></div>
+    <div><b data-i18n="ft_pages"></b><a href="particuliers.html" data-i18n="nav_clients"></a><a href="ecoles.html" data-i18n="nav_schools"></a><a href="entreprises.html" data-i18n="nav_biz"></a><a href="experience.html" data-i18n="nav_live"></a></div>
+    <div><b data-i18n="ft_contact"></b><a href="reserver.html" data-i18n="ft_book"></a><span data-i18n="ft_city"></span></div>
+    <div class="legal"><span data-i18n="ft_rights"></span><span data-i18n="ft_demo"></span></div>
+  </div>
+</footer>
+<a class="btn btn-saffron sticky-cta" id="stickyCta" href="reserver.html" data-i18n="sticky_book"></a>
+<script src="js/i18n.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>
