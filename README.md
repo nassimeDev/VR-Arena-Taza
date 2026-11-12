@@ -27,6 +27,7 @@ vercel --prod # version publique
 | Disponibilités des casques | Actuellement simulées (démonstration) dans `js/reserve.js`, fonction `computeBooked`. À relier à une vraie base de données à l'ouverture. |
 | Tous les textes du site | `js/i18n.js` : chaque texte existe en `fr`, `en` et `ar` |
 | Adresse de la salle | `js/i18n.js`, clé `a6` |
+| Lien Google Maps (lien « Itinéraire » du pied de page) | `js/ui.js`, `MAPS_URL` |
 
 ## Liens utiles
 - `?lang=fr`, `?lang=en`, `?lang=ar` : ouvre le site dans une langue précise.
@@ -39,6 +40,7 @@ vercel --prod # version publique
 - `particuliers.html` : formules, catalogue, déroulé d'une visite, tournois
 - `ecoles.html` : écoles et universités, laboratoires, demande de visite
 - `entreprises.html` : développement sur mesure, formation, journées d'équipe, demande de devis
+- `labo.html` : laboratoire R&D IT HUB (simulations, IA pour l'éducation, besoins du Maroc, demande de partenariat)
 - `experience.html` : session en direct (partie, anniversaire, cours universitaire) avec l'écran des spectateurs et les temps
 - `reserver.html` : réservation avec les casques 3D (Libre / Réservé / Votre choix)
 

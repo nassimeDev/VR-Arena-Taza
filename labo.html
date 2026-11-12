@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Labo R&amp;D · IT HUB VR Arena Taza</title>
+<meta name="description" content="Le laboratoire R&amp;D d'IT HUB : simulations, labos virtuels et intelligence artificielle au service de l'école marocaine.">
+<meta name="theme-color" content="#0F1730">
+<meta property="og:title" content="Labo R&amp;D · IT HUB VR Arena Taza">
+<meta property="og:description" content="Le laboratoire R&amp;D d'IT HUB : simulations, labos virtuels et intelligence artificielle au service de l'école marocaine.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 24'%3E%3Crect x='1' y='3' width='32' height='18' rx='7' fill='%2314A5A3'/%3E%3Crect x='5' y='7' width='10' height='10' rx='4' fill='%230F1730'/%3E%3Crect x='19' y='7' width='10' height='10' rx='4' fill='%230F1730'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/three.module.js", "three/addons/": "./vendor/three/addons/" } }
+</script>
+</head>
+<body data-page="lab">
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="VR Arena Taza"><svg width="34" height="24" viewBox="0 0 34 24" aria-hidden="true"><rect x="1" y="3" width="32" height="18" rx="7" fill="#14A5A3"/><rect x="5" y="7" width="10" height="10" rx="4" fill="#0F1730"/><rect x="19" y="7" width="10" height="10" rx="4" fill="#0F1730"/><circle cx="10" cy="12" r="2" fill="#E8A33D"/><circle cx="24" cy="12" r="2" fill="#E8A33D"/></svg><span>VR Arena Taza</span></a>
+    <nav class="nav" id="nav">
+      <a href="index.html" data-page="home" data-i18n="nav_home"></a>
+      <a href="particuliers.html" data-page="clients" data-i18n="nav_clients"></a>
+      <a href="ecoles.html" data-page="schools" data-i18n="nav_schools"></a>
+      <a href="entreprises.html" data-page="biz" data-i18n="nav_biz"></a>
+      <a href="labo.html" data-page="lab" data-i18n="nav_lab"></a>
+      <a href="experience.html" data-page="live" data-i18n="nav_live"></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Langue / Language / اللغة">
+      <button data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="ar" lang="ar">ع</button>
+    </div>
+    <a class="btn btn-saffron btn-book" href="reserver.html" data-i18n="book_btn"></a>
+    <button class="menu-btn" id="menuBtn" data-i18n-aria="menu_open" aria-expanded="false" aria-controls="nav">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+<main>
+<section class="phero">
+  <div class="phero-grid" aria-hidden="true"></div><div class="phero-art lab" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="wrap phero-in">
+    <div class="status"><i></i><span data-i18n="rd_status"></span></div>
+    <h1 data-i18n="rd_h1"></h1>
+    <p class="lead" data-i18n="rd_lead"></p>
+    <div class="cta-row"><a class="btn btn-saffron btn-lg" href="#partenariat" data-i18n="rd_cta1"></a><a class="btn btn-ghost btn-lg" href="#programmes" data-i18n="rd_cta2"></a></div>
+  </div>
+</section>
+<section><div class="wrap">
+  <div class="sec-head reveal"><h2 data-i18n="rd_eng_h"></h2><p class="lead" data-i18n="rd_eng_lead"></p></div>
+  <div class="grid4">
+    <article class="lvl reveal"><h3 data-i18n="rd_eng1_h"></h3><p data-i18n="rd_eng1_p"></p></article>
+    <article class="lvl reveal"><h3 data-i18n="rd_eng2_h"></h3><p data-i18n="rd_eng2_p"></p></article>
+    <article class="lvl reveal"><h3 data-i18n="rd_eng3_h"></h3><p data-i18n="rd_eng3_p"></p></article>
+    <article class="lvl reveal"><h3 data-i18n="rd_eng4_h"></h3><p data-i18n="rd_eng4_p"></p></article>
+  </div>
+</div></section>
+<section class="mist" id="programmes"><div class="wrap">
+  <div class="sec-head reveal"><h2 data-i18n="rd_pg_h"></h2><p class="lead" data-i18n="rd_pg_lead"></p></div>
+  <div class="grid3">
+    <article class="tile reveal" style="--c:#2F5DA8"><span class="tile-ic" aria-hidden="true"></span><h3 data-i18n="rd_pg1_h"></h3><p data-i18n="rd_pg1_p"></p><small data-i18n="rd_pg1_m"></small></article>
+    <article class="tile reveal" style="--c:#14A5A3"><span class="tile-ic" aria-hidden="true"></span><h3 data-i18n="rd_pg2_h"></h3><p data-i18n="rd_pg2_p"></p><small data-i18n="rd_pg2_m"></small></article>
+    <article class="tile reveal" style="--c:#7B5CD6"><span class="tile-ic" aria-hidden="true"></span><h3 data-i18n="rd_pg3_h"></h3><p data-i18n="rd_pg3_p"></p><small data-i18n="rd_pg3_m"></small></article>
+    <article class="tile reveal" style="--c:#E8A33D"><span class="tile-ic" aria-hidden="true"></span><h3 data-i18n="rd_pg4_h"></h3><p data-i18n="rd_pg4_p"></p><small data-i18n="rd_pg4_m"></small></article>
+    <article class="tile reveal" style="--c:#E85D75"><span class="tile-ic" aria-hidden="true"></span><h3 data-i18n="rd_pg5_h"></h3><p data-i18n="rd_pg5_p"></p><small data-i18n="rd_pg5_m"></small></article>
+    <article class="tile reveal" style="--c:#6BBF59"><span class="tile-ic" aria-hidden="true"></span><h3 data-i18n="rd_pg6_h"></h3><p data-i18n="rd_pg6_p"></p><small data-i18n="rd_pg6_m"></small></article>
+  </div>
+</div></section>
+<section class="dark"><div class="wrap">
+  <div class="sec-head reveal"><h2 data-i18n="rd_ma_h"></h2><p class="lead" data-i18n="rd_ma_lead"></p></div>
+  <div class="needs">
+    <article class="need reveal"><b data-i18n="rd_ma1_b"></b><p data-i18n="rd_ma1_p"></p></article>
+    <article class="need reveal"><b data-i18n="rd_ma2_b"></b><p data-i18n="rd_ma2_p"></p></article>
+    <article class="need reveal"><b data-i18n="rd_ma3_b"></b><p data-i18n="rd_ma3_p"></p></article>
+    <article class="need reveal"><b data-i18n="rd_ma4_b"></b><p data-i18n="rd_ma4_p"></p></article>
+    <article class="need reveal"><b data-i18n="rd_ma5_b"></b><p data-i18n="rd_ma5_p"></p></article>
+    <article class="need reveal"><b data-i18n="rd_ma6_b"></b><p data-i18n="rd_ma6_p"></p></article>
+  </div>
+</div></section>
+<section><div class="wrap">
+  <div class="sec-head reveal"><h2 data-i18n="rd_md_h"></h2></div>
+  <ol class="steps reveal">
+    <li><b data-i18n="rd_md1_b"></b><span data-i18n="rd_md1_s"></span></li>
+    <li><b data-i18n="rd_md2_b"></b><span data-i18n="rd_md2_s"></span></li>
+    <li><b data-i18n="rd_md3_b"></b><span data-i18n="rd_md3_s"></span></li>
+    <li><b data-i18n="rd_md4_b"></b><span data-i18n="rd_md4_s"></span></li>
+  </ol>
+</div></section>
+<section class="mist"><div class="wrap two-col">
+  <div class="reveal"><h2 data-i18n="rd_pt_h"></h2><p class="lead" data-i18n="rd_pt_p"></p><ul class="ticks" data-i18n-list="rd_pt_l"></ul></div>
+  <div class="reveal card-soft rd-card"><h3 data-i18n="rd_eth_h" style="margin-bottom:12px"></h3><ul class="ticks" data-i18n-list="rd_eth_l"></ul></div>
+</div></section>
+<section id="partenariat" data-hide-sticky><div class="wrap book">
+  <div class="reveal"><div class="sec-head"><h2 data-i18n="rd_q_h"></h2><p class="lead" data-i18n="rd_q_lead"></p></div></div>
+  <div>
+    <form class="form quote" novalidate>
+      <div class="two">
+        <div class="f"><label data-i18n="qf_name"></label><input name="name" autocomplete="name"></div>
+        <div class="f"><label data-i18n="qf_org"></label><input name="org" autocomplete="organization"></div>
+      </div>
+      <div class="two">
+        <div class="f"><label data-i18n="qf_phone"></label><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="06 00 00 00 00" dir="ltr"></div>
+        <div class="f"><label data-i18n="qf_email"></label><input name="email" type="email" autocomplete="email" dir="ltr"></div>
+      </div>
+      <div class="two">
+        <div class="f"><label data-i18n="qf_need"></label><select name="need" data-i18n-options="qf_need_rd"></select></div>
+        <div class="f"><label data-i18n="qf_count"></label><input name="count" type="number" min="1" max="100000" inputmode="numeric"></div>
+      </div>
+      <div class="f"><label data-i18n="qf_date"></label><input name="date" type="date"></div>
+      <div class="f"><label data-i18n="qf_msg"></label><textarea name="msg" rows="4" data-i18n-ph="rd_msg_ph"></textarea></div>
+      <div class="err" role="alert"></div>
+      <button class="btn btn-ink btn-block" type="submit" data-i18n="qf_submit"></button>
+    </form>
+    <div class="done" hidden><h3 data-i18n="done_h"></h3><ul class="recap"></ul><div class="sendZone"></div><button type="button" class="link-btn again" style="margin-top:12px" data-i18n="edit"></button></div>
+  </div>
+</div></section>
+</main>
+<footer>
+  <div class="wrap">
+    <div><a class="brand" href="index.html"><svg width="34" height="24" viewBox="0 0 34 24" aria-hidden="true"><rect x="1" y="3" width="32" height="18" rx="7" fill="#14A5A3"/><rect x="5" y="7" width="10" height="10" rx="4" fill="#0F1730"/><rect x="19" y="7" width="10" height="10" rx="4" fill="#0F1730"/><circle cx="10" cy="12" r="2" fill="#E8A33D"/><circle cx="24" cy="12" r="2" fill="#E8A33D"/></svg><span>VR Arena Taza</span></a><p data-i18n="ft_about" style="margin-top:10px"></p></div>
+    <div><b data-i18n="ft_pages"></b><a href="particuliers.html" data-i18n="nav_clients"></a><a href="ecoles.html" data-i18n="nav_schools"></a><a href="entreprises.html" data-i18n="nav_biz"></a><a href="labo.html" data-i18n="nav_lab"></a><a href="experience.html" data-i18n="nav_live"></a></div>
+    <div><b data-i18n="ft_contact"></b><a href="reserver.html" data-i18n="ft_book"></a><span data-i18n="ft_city"></span></div>
+    <div class="legal"><span data-i18n="ft_rights"></span><span data-i18n="ft_demo"></span></div>
+  </div>
+</footer>
+<script src="js/i18n.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>
