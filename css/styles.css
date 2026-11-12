@@ -467,3 +467,14 @@ html[dir=rtl] .pn-head b{font-family:var(--ar)}
 }
 @media (max-width:420px){.hs-list{grid-template-columns:repeat(2,1fr)}}
 .mist .done,.rapp .done{background:#fff;border:1px solid var(--line)}
+
+/* lite mode: no 3D (slow phone, data saver or no WebGL). Content stays readable and booking keeps working. */
+html.lite .story{height:auto}
+html.lite .sticky{position:static;height:auto;overflow:visible}
+html.lite .stage{position:relative;inset:auto;background:radial-gradient(120% 80% at 80% 0%,rgba(20,165,163,.22),transparent 60%),radial-gradient(90% 70% at 0% 100%,rgba(232,163,61,.14),transparent 60%),var(--night)}
+html.lite .shade,html.lite .rail,html.lite .story .hud,html.lite [data-action=play],html.lite .scroll-hint,html.lite .ch7,html.lite .xapp,html.lite .rstage{display:none!important}
+html.lite .chapters{position:static;display:grid;gap:56px;padding:calc(var(--top) + 48px) 0 80px;pointer-events:auto}
+html.lite .ch{position:static;opacity:1!important;transform:none!important;margin-inline-start:max(20px,calc((100vw - var(--wrap))/2 + 20px));pointer-events:auto}
+html.lite .ch0 .sub{display:block}
+html.lite .side h2{font-size:clamp(28px,4.4vw,48px)}
+html.lite [data-goto-sc]{display:none}

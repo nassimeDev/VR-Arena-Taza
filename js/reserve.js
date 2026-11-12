@@ -5,12 +5,18 @@ import { T, small, coarse, createStage, buildRoom, buildBackdrop, makeHeadset, s
 /* Page Réserver : casques 3D flottants, Libre / Réservé / Votre choix */
 const $ = id => document.getElementById(id);
 const stage = $("rstage");
-const S = createStage(stage, { fov: 45 });
-const { renderer, scene, camera, roomGlow, neon } = S;
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true; controls.enablePan = false; controls.minDistance = 6; controls.maxDistance = 16;
-controls.minPolarAngle = 0.35; controls.maxPolarAngle = 1.25; controls.enableZoom = !coarse;
-renderer.domElement.style.touchAction = "pan-y";
+// 3D is a bonus: on lite devices (or if WebGL fails) the headset list below still lets people book.
+let S = null;
+if (!window.VR_LITE) { try { S = createStage(stage, { fov: 45 }); } catch (e) { S = null; } }
+const has3D = !!S;
+if (!has3D) { document.documentElement.classList.add("lite"); stage.hidden = true; }
+const { renderer, scene, camera, roomGlow, neon } = S || {};
+const controls = has3D ? new OrbitControls(camera, renderer.domElement) : null;
+if (has3D) {
+  controls.enableDamping = true; controls.enablePan = false; controls.minDistance = 6; controls.maxDistance = 16;
+  controls.minPolarAngle = 0.35; controls.maxPolarAngle = 1.25; controls.enableZoom = !coarse;
+  renderer.domElement.style.touchAction = "pan-y";
+}
 
 let room, heads = [];
 const st = { formule: "session", date: "", slot: "", booked: new Set(), sel: new Set() };
@@ -26,6 +32,7 @@ function computeBooked() {
 }
 
 function build() {
+  if (!has3D) { heads = [...Array(N).keys()].map(i => ({ i })); refresh3D(); return; }
   if (room) scene.remove(room.group);
   room = buildRoom({ mode: "arena", free: -1, occupant: () => null, bayLabels: false, spectators: [], host: true });
   scene.add(room.group); room.labelsGroup.visible = false;
@@ -47,7 +54,7 @@ function build() {
 const COLORS = { free: 0x2ad1cf, booked: 0x6b7280, mine: 0xffb347, none: 0x9fb0cc };
 function stateOf(i) { if (!st.date || !st.slot) return "none"; if (st.booked.has(i)) return "booked"; return st.sel.has(i) ? "mine" : "free"; }
 function refresh3D() {
-  heads.forEach(o => {
+  if (has3D) heads.forEach(o => {
     const s = stateOf(o.i), c = COLORS[s];
     o.beam.material.color.setHex(c); o.disc.material.color.setHex(c);
     o.h.body.material.color.setHex(s === "booked" ? 0x7c8496 : s === "mine" ? 0xffd08a : 0xf2f4f7);
@@ -74,6 +81,7 @@ function flashStep(id) { const el = $(id); el.scrollIntoView({ behavior: "smooth
 $("hsList").addEventListener("click", e => { const b = e.target.closest(".hs-chip"); if (b) toggle(+b.dataset.i); });
 
 // raycast on 3D headsets
+if (has3D) {
 const ray = new THREE.Raycaster(), ndc = new THREE.Vector2(); let down = null;
 renderer.domElement.addEventListener("pointerdown", e => down = [e.clientX, e.clientY]);
 renderer.domElement.addEventListener("pointerup", e => {
@@ -89,6 +97,7 @@ renderer.domElement.addEventListener("pointermove", e => {
   renderer.domElement.style.cursor = hit && !st.booked.has(hit.object.userData.i) ? "pointer" : "grab";
   heads.forEach(o => o.hover = hit && hit.object.userData.i === o.i);
 });
+}
 
 /* ---------- form ---------- */
 const form = $("bookForm"), slotsEl = $("slots"), date = $("bdate");
@@ -146,18 +155,17 @@ $("done").querySelector(".again").onclick = () => { $("done").hidden = true; for
 
 /* ---------- loop ---------- */
 const clock = new THREE.Clock(); let visible = true;
-new IntersectionObserver(es => visible = es[0].isIntersecting).observe(stage);
-renderer.setAnimationLoop(() => {
+if (has3D) new IntersectionObserver(es => visible = es[0].isIntersecting).observe(stage);
+if (has3D) renderer.setAnimationLoop(() => {
   if (!room || !visible) return;
   const dt = Math.min(clock.getDelta(), 0.05), t = clock.elapsedTime;
   room.animated.forEach(a => poseAvatar(a, t, dt));
   heads.forEach(o => { poseAvatar(o, t, dt); const s = o.hover ? 1.15 : 1; o.h.g.scale.lerp(V(s, s, s), Math.min(1, dt * 10)); o.beam.material.opacity = (stateOf(o.i) === "mine" ? 0.28 : 0.14) + 0.04 * Math.sin(t * 3 + o.i); });
   controls.update(); renderer.render(scene, camera);
 });
-onLangChange(() => { if (room) { refresh3D(); updateTotal(); } });
+onLangChange(() => { if (heads.length) { refresh3D(); updateTotal(); } });
 whenReady(() => {
   applyFormule(); build(); slots(); updateTotal();
-  const D = room.dims.D;
-  camera.position.set(0, small ? 9.5 : 7.2, small ? 9.5 : 7.4); controls.target.set(0, 0.8, -1.6); controls.update();
+  if (has3D) { camera.position.set(0, small ? 9.5 : 7.2, small ? 9.5 : 7.4); controls.target.set(0, 0.8, -1.6); controls.update(); }
   hideLoader();
 });

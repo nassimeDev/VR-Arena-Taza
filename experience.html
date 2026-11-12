@@ -81,6 +81,9 @@
 <a class="btn btn-saffron sticky-cta" id="stickyCta" href="reserver.html" data-i18n="sticky_book"></a>
 <script src="js/i18n.js"></script>
 <script src="js/ui.js"></script>
-<script type="module" src="js/experience.js"></script>
+<script type="module">
+if (window.VR_LITE) document.getElementById("loader").classList.add("out");
+else import("./js/experience.js").catch(() => { document.documentElement.classList.add("lite"); document.getElementById("loader").classList.add("out"); });
+</script>
 </body>
 </html>

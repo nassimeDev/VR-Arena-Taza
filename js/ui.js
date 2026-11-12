@@ -1,6 +1,7 @@
 (() => {
   // Numéro WhatsApp de la salle, format international sans + (ex. "212600000000"). Vide = envoi désactivé.
-  window.VR_CONFIG = { WHATSAPP: "", PRICE_SESSION: 30, PRICE_SUB: 199, PRICE_BDAY: 400 };
+  // MAPS_URL: lien Google Maps de la salle. Vide = pas de lien « Itinéraire » dans le pied de page.
+  window.VR_CONFIG = { WHATSAPP: "", MAPS_URL: "", PRICE_SESSION: 30, PRICE_SUB: 199, PRICE_BDAY: 400 };
 
   const $ = id => document.getElementById(id);
   const t = (k, v) => window.I18N.t(k, v);
@@ -20,6 +21,25 @@
     if (c) c.onclick = async () => { try { await navigator.clipboard.writeText(text); c.textContent = t("copied"); } catch (e) { c.textContent = t("copy_fail"); } };
   };
   window.VR_UI.validPhone = v => { const p = v.replace(/[\s.-]/g, "").replace(/^\+212/, "0").replace(/^00212/, "0"); return /^0[5-7]\d{8}$/.test(p) ? p : null; };
+
+  // Lite mode: skip the heavy 3D on devices that can't run it well.
+  // ?lite forces it on, ?3d forces full 3D.
+  window.VR_LITE = (() => {
+    const q = new URLSearchParams(location.search);
+    if (q.has("3d")) return false;
+    if (q.has("lite")) return true;
+    const n = navigator, c = n.connection || {};
+    if (c.saveData || (n.deviceMemory && n.deviceMemory <= 2) || (n.hardwareConcurrency && n.hardwareConcurrency <= 2)) return true;
+    try { const cv = document.createElement("canvas"); return !(cv.getContext("webgl2") || cv.getContext("webgl")); } catch (e) { return true; }
+  })();
+  if (window.VR_LITE) document.documentElement.classList.add("lite");
+
+  // Never leave visitors stuck on the loading screen: if the 3D scene fails
+  // (no WebGL, old phone, script error) or is slow, show the page anyway.
+  const dropLoader = () => { const l = document.getElementById("loader"); if (l) l.classList.add("out"); };
+  addEventListener("error", dropLoader);
+  addEventListener("unhandledrejection", dropLoader);
+  setTimeout(dropLoader, 8000);
 
   const ready = fn => document.readyState !== "loading" ? fn() : document.addEventListener("DOMContentLoaded", fn);
   ready(() => {
@@ -68,6 +88,14 @@
       });
       done.querySelector(".again").onclick = () => { done.hidden = true; form.hidden = false; };
     });
+
+    // footer: directions + WhatsApp links, shown once they are configured
+    const city = document.querySelector('footer [data-i18n="ft_city"]');
+    if (city) {
+      const C = window.VR_CONFIG, add = (href, key) => { const a = document.createElement("a"); a.href = href; a.target = "_blank"; a.rel = "noopener"; a.dataset.i18n = key; a.textContent = t(key); city.before(a); };
+      if (C.WHATSAPP) add("https://wa.me/" + C.WHATSAPP, "ft_wa");
+      if (C.MAPS_URL) add(C.MAPS_URL, "ft_map");
+    }
 
     // sticky CTA (mobile)
     const sticky = $("stickyCta");
